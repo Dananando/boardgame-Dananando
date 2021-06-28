@@ -47,10 +47,10 @@ class Boardgame {
         try {
             if (this.id) {
                 // ToDO: update
-                const { rows } = db.query(`SELECT update_boardgame($1)`, [this]);
+                const { rows } = await db.query(`SELECT update_boardgame($1)`, [this]);
             } else {
                 // ToDo: insert
-                const { rows } = db.query('SELECT add_boardgame($1, $2, $3, $4, $5, $6) AS id', [
+                const { rows } = await db.query('SELECT add_boardgame($1, $2, $3, $4, $5, $6) AS id', [
                     this.name,
                     this.author,
                     this.editor,
